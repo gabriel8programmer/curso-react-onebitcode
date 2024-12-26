@@ -12,14 +12,16 @@ export default function App() {
       <h1>Biblioteca de Jogos</h1>
       <NewGameForm addGame={addGame} />
       <div className="games">
-        {games.map((game) => (
+        {games.length > 0 ? games.map((game) => (
           <Game
             key={game.id}
             title={game.title}
             cover={game.cover}
             onRemove={() => removeGame(game.id)}
           />
-        ))}
+        )) : (
+          <h2>Não há games disponíveis na lista. Adcione novos games!</h2>
+        )}
       </div>
     </div>
   )
