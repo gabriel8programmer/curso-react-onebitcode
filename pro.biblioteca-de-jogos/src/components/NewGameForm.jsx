@@ -20,6 +20,7 @@ export default function NewGameForm({ addGame }) {
             clean()
             return
         }
+
         addGame({ title, cover })
         clean()
     }
