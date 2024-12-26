@@ -7,11 +7,21 @@ export default function NewGameForm({ addGame }) {
     const [title, setTitle] = useState('')
     const [cover, setCover] = useState('')
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        addGame({ title, cover })
+    const clean = () => {
         setTitle('')
         setCover('')
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        if (!title || !cover) {
+            alert("É Obrigatório um nome e uma capa para adcionar o novo Game!")
+            clean()
+            return
+        }
+        addGame({ title, cover })
+        clean()
     }
 
     return (
