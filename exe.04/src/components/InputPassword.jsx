@@ -4,9 +4,9 @@ export default function Input(props) {
         <input
             type="number"
             min={1}
-            id='passwordLength'
-            value={props.passwordLength}
-            onChange={(e) => props.setPasswordLength(e.target.value)}
+            id='passwordSize'
+            value={props.passwordSize}
+            onChange={(e) => props.setPasswordSize(e.target.value)}
         />
     )
 }
