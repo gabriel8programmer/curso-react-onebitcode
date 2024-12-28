@@ -66,3 +66,27 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.app {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.pokemon {
+  height: 30rem;
+  width: 20rem;
+  overflow-y: scroll;
+}
+
+.pokemon li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  margin-right: 1rem;
+}
+
+.stat + .stat {
+  margin-top: 0.5rem;
+}

@@ -1,36 +1,36 @@
 import { useState, useEffect } from "react";
 
+const fetchPokemon = async () => {
+  const response = await fetch("https://pokeapi.co/api/v2/pokemon/");
+  const data = await response.json();
+  return data.results;
+};
+
 export default function App() {
-  const [counter, setCounter] = useState(0);
-  const [show, setShow] = useState(false);
+  const [pokemon, setPokemon] = useState([]);
 
   useEffect(() => {
-    console.log("Mudou o contador!");
-
-    return () => {
-      console.log("Botão OFF");
-      console.log("Componente desmontado!");
-    };
-  }, [counter]);
+    fetchPokemon().then((res) => {
+      console.log("Requisição realizada");
+      console.log(res);
+      setPokemon(res);
+    });
+  }, []);
 
   return (
-    <div>
-      <h2>Conhecendo o UseEffect</h2>
-      <hr />
+    <div className="app">
       <div>
-        <input
-          type="checkbox"
-          value={show}
-          onChange={() => setShow((state) => !state)}
-        />{" "}
-        Mostrar botão
+        <h2>API do pokemon</h2>
+
+        <ul className="pokemon">
+          {pokemon.map((mon) => (
+            <li key={mon.name}>
+              <span>{mon.name}</span>
+              <button>Ver detalhes</button>
+            </li>
+          ))}
+        </ul>
       </div>
-      <hr />
-      {show && (
-        <button onClick={() => setCounter((state) => state + 1)}>
-          Contador {counter}
-        </button>
-      )}
     </div>
   );
 }
