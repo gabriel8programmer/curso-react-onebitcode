@@ -5,6 +5,8 @@ import Cart from "./pages/Cart";
 import Admin from "./pages/admin/Admin";
 import RootLayout from "./pages/RootLayout";
 import Product from "./pages/Product";
+import { loadProduct } from "./loaders/products";
+import ProductBoundary from "./error-boundaries/ProductBoundary";
 
 export default createBrowserRouter([
   {
@@ -22,6 +24,8 @@ export default createBrowserRouter([
       {
         path: "/products/:productId",
         element: <Product />,
+        loader: loadProduct,
+        errorElement: <ProductBoundary />,
       },
       {
         path: "/cart",
