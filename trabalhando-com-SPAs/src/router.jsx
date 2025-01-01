@@ -3,7 +3,8 @@ import Home from "./pages/Home";
 import Products from "./pages/Products";
 import Cart from "./pages/Cart";
 import Admin from "./pages/admin/Admin";
-import RootLayout from "./components/RootLayout";
+import RootLayout from "./pages/RootLayout";
+import Product from "./pages/Product";
 
 export default createBrowserRouter([
   {
@@ -17,6 +18,10 @@ export default createBrowserRouter([
       {
         path: "/products",
         element: <Products />,
+      },
+      {
+        path: "/products/:productId",
+        element: <Product />,
       },
       {
         path: "/cart",
