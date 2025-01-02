@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+
+  & div {
+    text-transform: uppercase;
+  }
+
+  & nav {
+    display: flex;
+    gap: 1rem;
+
+    & a {
+      font-size: 0.9rem;
+      color: white;
+      font-weight: 300;
+      transition: 0.5s;
+
+      &:hover {
+        font-weight: 500;
+      }
+    }
+  }
+}
